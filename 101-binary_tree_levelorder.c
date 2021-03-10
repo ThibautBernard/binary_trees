@@ -9,7 +9,7 @@
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 {
 
-	if (tree)
+	if (tree && func)
 	{
 
 		if (!tree->parent)
