@@ -16,33 +16,26 @@ size_t binary_tree_8(const binary_tree_t *tree)
 		count_left = binary_tree_8(tree->left);
 		count_right = binary_tree_8(tree->right);
 		if (count_left >= count_right)
-			return count_left + 1;
+			return (count_left + 1);
 		else
-			return count_right + 1;
+			return (count_right + 1);
 	}
 	else
-	{
-		return 0;
-	}
+		return (0);
 }
 
 /**
- * binary_tree_is_full - check if tree is full
+ * binary_tree_balance - height left minus right
  * @tree: a started node
- * Return: 0 or 1
+ * Return: balance between left and right
  */
 int binary_tree_balance(const binary_tree_t *tree)
 {
-    size_t count = 0;
+	size_t count = 0;
 
-    if (tree && tree->left)
-    {
-        count = binary_tree_8(tree->left) + 1;
-    }
-
-    if (tree && tree->right)
-    {
-        count = count - (binary_tree_8(tree->right) + 1);
-    }
-    return (count);
+	if (tree && tree->left)
+		count = binary_tree_8(tree->left) + 1;
+	if (tree && tree->right)
+		count = count - (binary_tree_8(tree->right) + 1);
+	return (count);
 }
